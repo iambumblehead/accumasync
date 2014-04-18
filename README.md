@@ -7,7 +7,7 @@ accumasync
 Accumulate values asynchronously. 
 
 When looping through values in an array to perform async operations, you may be using boilerplate like this:
-```
+```javascript
 function collectAsync (arr, fn) {
   var newarr = [];
   (function next (x) {
@@ -24,7 +24,7 @@ function collectAsync (arr, fn) {
 But usually more boilerplate is necessary. The function is called frequently and to avoid exeeding stack limits a `setTimeout`. Some logic is added to throw an error when the given array is invalid. The order of array traversal is changed. With more boilerplate the role of the function is harder to understand.
 
 With `accumasync` some of the boilerplate is removed traversal order is easily changed and an error is thrown for an invalid array. The function above becomes this:
-```
+```javascript
 function collectAsync (arr, fn) {
   accumasync.arr(arr, [], function (elem, index, accumarr, next) {
     requestDataForElem(elem, function (err, res) {
@@ -57,7 +57,7 @@ function collectAsync (arr, fn) {
    function is called for each item and the body of it may perform an async operation to obtain new values
 
    the fn function is called like this:
-   ```
+   ```javascript
    fn(elem, index, accumvals, nextfn)
    ```
 
@@ -65,7 +65,7 @@ function collectAsync (arr, fn) {
    function is called at the end of traversal and may be called to prematurely end traversal
 
    the exitfn function is called like this:
-   ```
+   ```javascript
    exitfn(err, accumvals)
    ```
    
@@ -74,80 +74,80 @@ function collectAsync (arr, fn) {
 **accumasync.arr( _arr_, _accum_, _fn_, _exitfn_ )**
   
   traverse array elements in reverse order
-    ```
-    accumasync.arr(arr, [], function (elem, index, accumarr, next) {
-      requestDataForElem(elem, function (err, res) {
-        if (err) return fn(err);
-        accumarr.push(res);
-        next();
-      });    
-    }, exitfn);
-    ```
+  ```javascript
+  accumasync.arr(arr, [], function (elem, index, accumarr, next) {
+    requestDataForElem(elem, function (err, res) {
+      if (err) return fn(err);
+      accumarr.push(res);
+      next();
+    });
+  }, exitfn);
+  ```
     
 **accumasync.arrf( _arr_, _accum_, _fn_, _exitfn_ )**
 
   traverse array elements in forward order
-    ```
-    accumasync.arrf(arr, [], function (elem, index, accumarr, next) {
-      requestDataForElem(elem, function (err, res) {
-        if (err) return fn(err);
-        accumarr.push(res);
-        next();
-      });    
-    }, exitfn);
-    ```
+  ```javascript
+  accumasync.arrf(arr, [], function (elem, index, accumarr, next) {
+    requestDataForElem(elem, function (err, res) {
+      if (err) return fn(err);
+      accumarr.push(res);
+      next();
+    });
+  }, exitfn);
+  ```
     
 **accumasync.obj( _arr_, _accum_, _fn_, _exitfn_ )**
   
   traverse object keys in reverse order
-    ```
-    accumasync.obj(obj, [], function (elem, index, accumarr, next) {
-      requestDataForElem(obj[elem], function (err, res) {
-        if (err) return fn(err);
-        accumarr.push(res);
-        next();
-      });    
-    }, exitfn);
-    ```
+  ```javascript
+  accumasync.obj(obj, [], function (elem, index, accumarr, next) {
+    requestDataForElem(obj[elem], function (err, res) {
+      if (err) return fn(err);
+      accumarr.push(res);
+      next();
+    });
+  }, exitfn);
+  ```
 
 **accumasync.objf( _arr_, _accum_, _fn_, _exitfn_ )**
   
   traverse object keys in forward order
-    ```
-    accumasync.obj(obj, [], function (elem, index, accumarr, next) {
-      requestDataForElem(obj[elem], function (err, res) {
-        if (err) return fn(err);
-        accumarr.push(res);
-        next();
-      });    
-    }, exitfn);
-    ```
+  ```javascript
+  accumasync.obj(obj, [], function (elem, index, accumarr, next) {
+    requestDataForElem(obj[elem], function (err, res) {
+      if (err) return fn(err);
+      accumarr.push(res);
+      next();
+    });
+  }, exitfn);
+  ```
 
 **accumasync.num( _arr_, _accum_, _fn_, _exitfn_ )**
   
   traverse numbers in reverse order
-    ```
-    accumasync.num(num, [], function (elem, index, accumarr, next) {
-      requestDataForElem(num, function (err, res) {
-        if (err) return fn(err);
-        accumarr.push(res);
-        next();
-      });    
-    }, exitfn);
-    ```
+  ```javascript
+  accumasync.num(num, [], function (elem, index, accumarr, next) {
+    requestDataForElem(num, function (err, res) {
+      if (err) return fn(err);
+      accumarr.push(res);
+      next();
+    });
+  }, exitfn);
+  ```
     
 **accumasync.numf( _arr_, _accum_, _fn_, _exitfn_ )**
   
   traverse numbers in forward order
-    ```
-    accumasync.numf(num, [], function (elem, index, accumarr, next) {
-      requestDataForElem(num, function (err, res) {
-        if (err) return fn(err);
-        accumarr.push(res);
-        next();
-      });    
-    }, exitfn);
-    ```
+  ```javascript
+  accumasync.numf(num, [], function (elem, index, accumarr, next) {
+    requestDataForElem(num, function (err, res) {
+      if (err) return fn(err);
+      accumarr.push(res);
+      next();
+    });
+  }, exitfn);
+  ```
 
 ---------------------------------------------------------
 #### <a id="install"></a>Install:
