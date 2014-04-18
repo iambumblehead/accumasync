@@ -1,6 +1,6 @@
 accumasync
 ==========
-**(c)[Bumblehead][0], 2014** [MIT-license](#license)  
+**(c)[Bumblehead][0], 2014** [MIT-license](#license)
 
 ### Overview:
 
@@ -77,7 +77,7 @@ function collectAsync (arr, fn) {
   ```javascript
   accumasync.arr(arr, [], function (elem, index, accumarr, next) {
     requestDataForElem(elem, function (err, res) {
-      if (err) return fn(err);
+      if (err) return next(err);
       accumarr.push(res);
       next();
     });
@@ -90,7 +90,7 @@ function collectAsync (arr, fn) {
   ```javascript
   accumasync.arrf(arr, [], function (elem, index, accumarr, next) {
     requestDataForElem(elem, function (err, res) {
-      if (err) return fn(err);
+      if (err) return next(err);
       accumarr.push(res);
       next();
     });
@@ -103,7 +103,7 @@ function collectAsync (arr, fn) {
   ```javascript
   accumasync.obj(obj, [], function (elem, index, accumarr, next) {
     requestDataForElem(obj[elem], function (err, res) {
-      if (err) return fn(err);
+      if (err) return next(err);
       accumarr.push(res);
       next();
     });
@@ -116,7 +116,7 @@ function collectAsync (arr, fn) {
   ```javascript
   accumasync.obj(obj, [], function (elem, index, accumarr, next) {
     requestDataForElem(obj[elem], function (err, res) {
-      if (err) return fn(err);
+      if (err) return next(err);
       accumarr.push(res);
       next();
     });
@@ -129,7 +129,7 @@ function collectAsync (arr, fn) {
   ```javascript
   accumasync.num(num, [], function (elem, index, accumarr, next) {
     requestDataForElem(num, function (err, res) {
-      if (err) return fn(err);
+      if (err) return next(err);
       accumarr.push(res);
       next();
     });
@@ -142,7 +142,7 @@ function collectAsync (arr, fn) {
   ```javascript
   accumasync.numf(num, [], function (elem, index, accumarr, next) {
     requestDataForElem(num, function (err, res) {
-      if (err) return fn(err);
+      if (err) return next(err);
       accumarr.push(res);
       next();
     });
@@ -154,7 +154,7 @@ function collectAsync (arr, fn) {
 
 `accumasync` may be downloaded directly or installed through `npm`.
 
- * **npm**   
+ * **npm**
 
  ```bash
  $ npm install accumasync
@@ -162,7 +162,7 @@ function collectAsync (arr, fn) {
 
  * **Direct Download**
  
- ```bash  
+ ```bash
  $ git clone https://github.com/iambumblehead/accumasync.git
  ```
 
