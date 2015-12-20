@@ -1,6 +1,7 @@
 {
   "name": "accumasync",
-  "version": "0.0.2",
+  "main": "accumasync",
+  "version": "0.0.3",
   "license" : "MIT",
   "readmeFilename": "README.md",
   "description": "accumulate values asynchronously",

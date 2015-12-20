@@ -1,8 +1,8 @@
 // Filename: accumasync.js  
-// Timestamp: 2014.04.13-11:57:03 (last modified)  
+// Timestamp: 2015.12.19-17:44:14 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com)  
 
-var accumasync = (typeof module === 'object' ? module : {}).exports = {
+var accumasync = module.exports = {
 
   accum : function (length, accum, exitfn, cb, getfn) {
     (function next(x, elem) {
