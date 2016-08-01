@@ -1,5 +1,5 @@
 // Filename: accumasync.js  
-// Timestamp: 2016.08.01-01:55:36 (last modified)
+// Timestamp: 2016.08.01-02:36:06 (last modified)
 // Author(s): Bumblehead (www.bumblehead.com)  
 
 var accumasync = module.exports = {
@@ -17,12 +17,10 @@ var accumasync = module.exports = {
 
   accumf : function (length, accum, exitfn, cb, getfn) {
     (function next(x) {
-      console.log('accume is ', x, accum);      
       if (x >= length) return exitfn(null, accum);
       cb(getfn(x), accum, function (err, res) {
         if (err) return exitfn(err);
         accum = res;
-        console.log('accume set is ', accum);
         next(++x);
       }, exitfn);
     }(0));
