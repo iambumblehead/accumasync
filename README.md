@@ -30,7 +30,7 @@ function collectAsync (arr, fn) {
     requestDataForElem(elem, function (err, res) {
       if (err) return fn(err);
       accumarr.push(res);
-      next();
+      next(null, accumarr);
     });    
   }, fn);
 }
@@ -79,7 +79,7 @@ function collectAsync (arr, fn) {
     requestDataForElem(elem, function (err, res) {
       if (err) return next(err);
       accumarr.push(res);
-      next();
+      next(null, accumarr);
     });
   }, exitfn);
   ```
@@ -92,7 +92,7 @@ function collectAsync (arr, fn) {
     requestDataForElem(elem, function (err, res) {
       if (err) return next(err);
       accumarr.push(res);
-      next();
+      next(null, accumarr);
     });
   }, exitfn);
   ```
@@ -105,7 +105,7 @@ function collectAsync (arr, fn) {
     requestDataForElem(obj[elem], function (err, res) {
       if (err) return next(err);
       accumarr.push(res);
-      next();
+      next(null, accumarr);
     });
   }, exitfn);
   ```
@@ -118,7 +118,7 @@ function collectAsync (arr, fn) {
     requestDataForElem(obj[elem], function (err, res) {
       if (err) return next(err);
       accumarr.push(res);
-      next();
+      next(null, accumarr);
     });
   }, exitfn);
   ```
@@ -131,7 +131,7 @@ function collectAsync (arr, fn) {
     requestDataForElem(num, function (err, res) {
       if (err) return next(err);
       accumarr.push(res);
-      next();
+      next(null, accumarr);
     });
   }, exitfn);
   ```
@@ -144,7 +144,7 @@ function collectAsync (arr, fn) {
     requestDataForElem(num, function (err, res) {
       if (err) return next(err);
       accumarr.push(res);
-      next();
+      next(null, accumarr);
     });
   }, exitfn);
   ```
